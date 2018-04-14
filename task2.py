@@ -10,20 +10,22 @@ def f(x):
 def fprime(x):
     return (-(x**2+1.)*np.sin(x)-2.*x*np.cos(x))/(x**2+1)**2
 
+print("time of calculations:")
+start_time = time.time()
+bisect_x = optimize.bisect(f, 0.1, 2.4)
+print("bisect %s seconds" % (time.time() - start_time))
 
 start_time = time.time()
-brentq_x = optimize.brentq(f, 0.1, 2.4)
-print("--- %s seconds ---" % (time.time() - start_time))
-
-bisect_x = optimize.bisect(f, 0.1, 2.4)
 newton_x = optimize.newton(f, 0.1)
-newtonx2_x = optimize.newton(f, 0.1, fprime)
+print("newton - %s seconds " % (time.time() - start_time))
 
-bisect_time = optimize.bisect (f, 0.1, 2.4)
-print("bisect", bisect_time)
+start_time = time.time()
+newtonx2_x = optimize.newton(f, 0.1, fprime)
+print("secant - %s seconds " % (time.time() - start_time))
+
+
+start_time = time.time()
 brentq_time = optimize.brentq (f, 0.1, 2.4)
-print("brentq", brentq_time)
-newton_time = optimize.newton (f, 0.1)
-print("newton", newton_time)
-newtonx2_time = optimize.newton (f, 0.1, fprime)
-print("newtonx2", newtonx2_time)
+print("brenth - %s seconds " % (time.time() - start_time))
+
+
