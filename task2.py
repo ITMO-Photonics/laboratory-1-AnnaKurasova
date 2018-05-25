@@ -26,7 +26,7 @@ print("secant - %s seconds " % (time.time() - start_time))
 
 start_time = time.time()
 brentq_time = optimize.brentq (f, 0.1, 2.4)
-print("brenth - %s seconds " % (time.time() - start_time))/
+print("brenth - %s seconds " % (time.time() - start_time))
 
 
 
