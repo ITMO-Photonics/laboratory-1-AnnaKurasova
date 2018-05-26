@@ -29,3 +29,4 @@ brentq_time = optimize.brentq (f, 0.1, 2.4)
 print("brenth - %s seconds " % (time.time() - start_time))
 
 
+
